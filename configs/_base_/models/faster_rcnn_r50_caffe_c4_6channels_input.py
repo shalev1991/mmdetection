@@ -6,6 +6,7 @@ model = dict(
     backbone=dict(
         type='ResNet',
         depth=50,
+        in_channels=6,
         num_stages=3,
         strides=(1, 2, 2),
         dilations=(1, 1, 1),

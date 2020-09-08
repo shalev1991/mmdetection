@@ -16,8 +16,8 @@ import mmdet.apis
 
 
 def main():
-    config = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try1/faster_rcnn_r50_caffe_c4_1x_coco_shalev.py'
-    checkpoint = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try1/latest.pth'
+    config = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2/faster_rcnn_r50_caffe_c4_1x_coco_shalev.py'
+    checkpoint = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2/latest.pth'
     src_img_path = '/home/shalev/downloads/1pic_coco/000000000285.jpg'
     dst_img_path = '/home/shalev/downloads/1pic_coco/000000000285_res.jpg'
     img = cv2.imread(src_img_path)

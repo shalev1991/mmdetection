@@ -1,5 +1,5 @@
 _base_ = [
-    '../_base_/models/faster_rcnn_r50_caffe_c4.py',
+    '../_base_/models/faster_rcnn_r50_caffe_c4_6channels_input.py',
     # '../_base_/datasets/coco_detection.py',
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
@@ -60,15 +60,15 @@ data = dict(
         classes=classes,
         img_prefix=data_root, #+ 'val2017/',
         pipeline=test_pipeline))
-evaluation = dict(interval=50, metric='bbox')
-checkpoint_config = dict(interval=50)
+evaluation = dict(interval=1, metric='bbox')
+checkpoint_config = dict(interval=10)
 log_config = dict(
     interval=50,
     hooks=[
         dict(type='TextLoggerHook'),
-        # dict(type='TensorboardLoggerHook')
+        dict(type='TensorboardLoggerHook')
     ])
-total_epochs = 5000
+total_epochs = 10001
 # optimizer
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 work_dir = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2'

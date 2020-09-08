@@ -7,6 +7,6 @@ class Duplicate:
     def __call__(self, results):
         results['img'] = np.dstack((results['img'],results['img']))
         results['img_shape'] = results['img'].shape
-        results['ori_shape'][-1] *= 2
+        results['ori_shape'] = (results['ori_shape'][0],results['ori_shape'][1],2 * results['ori_shape'][2])
 
         return results
