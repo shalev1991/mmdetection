@@ -4,6 +4,7 @@ import os
 import os.path as osp
 import time
 import warnings
+import numpy as np
 
 import mmcv
 import torch
@@ -22,6 +23,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
     parser.add_argument('config', help='train config file path')
     parser.add_argument('--work-dir', help='the dir to save logs and models')
+    parser.add_argument('--prune', default='False')
+    parser.add_argument('--prune-per-iter')
     parser.add_argument(
         '--resume-from', help='the checkpoint file to resume from')
     parser.add_argument(
@@ -163,6 +166,18 @@ def main():
             CLASSES=datasets[0].CLASSES)
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
+
+    if cfg.prune:
+        try:
+            if cfg.prune_per_iter >= 0:
+                pass
+        except:
+            cfg.prune_per_iter = np.inf
+    else:
+         cfg.prune_per_iter = np.inf
+
+
+
     train_detector(
         model,
         datasets,

@@ -68,8 +68,10 @@ log_config = dict(
         dict(type='TextLoggerHook'),
         dict(type='TensorboardLoggerHook')
     ])
-total_epochs = 10001
+total_epochs = 11001
 # optimizer
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 work_dir = '/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2'
-resume_from='/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2/latest.pth'
+prune=True
+prune_per_iter = 10
+resume_from='/media/shalev/98a3e66d-f664-402a-9639-15ec6b8a7150/work_dirs/try2/epoch_9930.pth'
